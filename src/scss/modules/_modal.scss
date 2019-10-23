@@ -66,7 +66,7 @@
     }
     .menu-item {
         position: relative;
-        padding: 20px 0;
+        margin: 5px 0;
         .price {
             margin-right: 30px;
         }
@@ -76,6 +76,7 @@
     .button {
         background-color: $button-bg-hover;
         color: #fff;
+        margin: 5px 0 0;
         &:hover {
             background-color: lighten($button-bg-hover, 10%);
             color: #fff;

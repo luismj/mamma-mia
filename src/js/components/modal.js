@@ -1,16 +1,17 @@
-import { addClass, addId, button, div, h1, i, p, section, text, ul } from '../builders';
+import { addClass, addId, input, password, button, div, h1, i, section, text, ul } from '../builders';
 import { $ } from '../helpers';
 import modalItem from './modalItem';
 
 export default function modal(store) {
   const close = addId(addClass(i(), 'fa', 'fa-times', 'close'), 'close');
-  const title = addClass(h1(text('Cart')), 'title');
+  const title = addClass(h1(text('Ingreso')), 'title');
 
-  const cartContainer = addId(div(p(text('Your cart is empty.'))), 'cart-items');
+  const userField = addClass(input("Usuario"), 'menu-item', 'is-fullwidth');
+  const passwordField = addClass(password(), 'menu-item', 'is-fullwidth');
 
-  const checkoutButton = addClass(button(text('Checkout')), 'button', 'is-fullwidth');
+  const loginButton = addClass(button(text('Ingresar')), 'button', 'is-fullwidth');
 
-  const modalContainer = addClass(div(close, title, cartContainer, checkoutButton), 'modal-container');
+  const modalContainer = addClass(div(close, title, userField, passwordField, loginButton), 'modal-container');
 
   const modalEle = addId(addClass(section(modalContainer), 'modal'), 'modal');
 

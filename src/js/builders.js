@@ -66,6 +66,20 @@ export function button(...children) {
   return createElement('button', ...children);
 }
 
+export function input(placeholder, ...children) {
+  const input = createElement('input', ...children);
+  input.type = "text";
+  input.placeholder = placeholder;
+  return input;
+}
+
+export function password(...children) {
+  const input = createElement('input', ...children);
+  input.type = "password";
+  input.placeholder = "Contraseña";
+  return input;
+}
+
 export function addId(element, id) {
   const newElement = element.cloneNode(true);
   return Object.assign(newElement, { id });
