@@ -35,8 +35,13 @@ export default function modal(store) {
 
   store.on('CREDENTIALS_CORRECT', (store) => {
     console.log('credentials correct');
-    $('.message-board').removeChildWithId('incorrect-password');
+    if (store.incorrectMsgShowing) {
+      $('.message-board').removeChildWithId('incorrect-password');
+    }
     store.incorrectMsgShowing = false;
+    const ele = $('#modal');
+    ele.removeClass('show')
+    // TODO: Make dishes editable
   });
 
   store.on('CREDENTIALS_REJECTED', (store) => {
