@@ -1,3 +1,5 @@
+import { emit } from "cluster";
+
 export function formatPrice(price) {
   return parseFloat(price).toFixed(2);
 }
@@ -25,6 +27,17 @@ export function $(query) {
 
       ele.appendChild(toAdd);
     });
+  }
+
+  function addChildLast(toAdd) {
+    elements.forEach(ele => {
+      ele.appendChild(toAdd);
+    });
+  }
+
+  function removeChildWithId(id) {
+    let myobj = document.getElementById(id);
+    myobj.remove();
   }
 
   function addClass(klass) {
@@ -56,8 +69,10 @@ export function $(query) {
   return {
     on,
     children,
+    addChildLast,
     addClass,
     removeClass,
+    removeChildWithId,
     attr,
     map,
   };

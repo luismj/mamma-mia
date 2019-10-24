@@ -22,6 +22,18 @@ export default function (store) {
     store.trigger('ITEM_ADDED', { item: key });
   });
 
+  $('.login').on('click', e => {
+    let parent = e.srcElement.parentElement;
+    let user = parent.children[2].value;
+    let password = parent.children[3].value;
+    console.log(e);
+    if (user == 'admin' && password == 'proyectos') {
+      store.trigger('CREDENTIALS_CORRECT', store);
+    } else {
+      store.trigger('CREDENTIALS_REJECTED', store);
+    }
+  });
+
   $('body').on('click', e => {
     if (e.target.classList.contains('remove')) {
       const element = e.target;

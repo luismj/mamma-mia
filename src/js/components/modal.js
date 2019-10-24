@@ -1,4 +1,4 @@
-import { addClass, addId, input, password, button, div, h1, i, section, text, ul } from '../builders';
+import { addClass, addId, input, password, button, div, h1, h3, i, section, text, ul } from '../builders';
 import { $ } from '../helpers';
 import modalItem from './modalItem';
 
@@ -6,12 +6,14 @@ export default function modal(store) {
   const close = addId(addClass(i(), 'fa', 'fa-times', 'close'), 'close');
   const title = addClass(h1(text('Ingreso')), 'title');
 
-  const userField = addClass(input("Usuario"), 'menu-item', 'is-fullwidth');
-  const passwordField = addClass(password(), 'menu-item', 'is-fullwidth');
+  const userField = addClass(input("Usuario"), 'user', 'menu-item', 'is-fullwidth');
+  const passwordField = addClass(password(), 'password', 'menu-item', 'is-fullwidth');
 
-  const loginButton = addClass(button(text('Ingresar')), 'button', 'is-fullwidth');
+  const messageBoard = addClass(div(), 'message-board');
 
-  const modalContainer = addClass(div(close, title, userField, passwordField, loginButton), 'modal-container');
+  const loginButton = addClass(button(text('Ingresar')), 'login', 'button', 'is-fullwidth');
+
+  const modalContainer = addClass(div(close, title, userField, passwordField, messageBoard, loginButton), 'modal-container');
 
   const modalEle = addId(addClass(section(modalContainer), 'modal'), 'modal');
 
@@ -29,6 +31,21 @@ export default function modal(store) {
     const cartItems = cartArray.map(itemId => modalItem(items[itemId]));
     const cartList = addClass(ul(...cartItems), 'menu');
     $('#cart-items').children(cartList);
+  });
+
+  store.on('CREDENTIALS_CORRECT', (store) => {
+    console.log('credentials correct');
+    $('.message-board').removeChildWithId('incorrect-password');
+    store.incorrectMsgShowing = false;
+  });
+
+  store.on('CREDENTIALS_REJECTED', (store) => {
+    if (!store.incorrectMsgShowing) {
+      const msg = "Credenciales incorrectas. Inténtelo de nuevo o contacte al administrador.";
+      const help = addId(addClass(h3(text(msg)), 'menu'), 'incorrect-password');
+      $('.message-board').addChildLast(help);
+      store.incorrectMsgShowing = true;
+    }
   });
 
   return modalEle;
