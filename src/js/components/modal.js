@@ -47,7 +47,7 @@ export default function modal(store) {
   store.on('CREDENTIALS_REJECTED', (store) => {
     if (!store.incorrectMsgShowing) {
       const msg = "Credenciales incorrectas. Inténtelo de nuevo o contacte al administrador.";
-      const help = addId(addClass(h3(text(msg)), 'menu'), 'incorrect-password');
+      const help = addId(addClass(h3(text(msg)), 'errorPanel'), 'incorrect-password');
       $('.message-board').addChildLast(help);
       store.incorrectMsgShowing = true;
     }

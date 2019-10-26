@@ -71,7 +71,6 @@
             margin-right: 30px;
         }
     }
-    .menu-item + .menu-item { border-top: 1px dotted #ccc; }
 
     .button {
         background-color: $button-bg-hover;
@@ -81,5 +80,16 @@
             background-color: lighten($button-bg-hover, 10%);
             color: #fff;
         }
+        height:50px;
+        font-size: 1.5rem;
+    }
+
+    .errorPanel{
+        padding:20px;
+        border:1px solid #D8000C;
+        color:#D8000C;
+        background-color: #FFBABA;
+        font-weight: bold;
+        text-align:center;
     }
 }
