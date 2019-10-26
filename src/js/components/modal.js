@@ -41,7 +41,15 @@ export default function modal(store) {
     store.incorrectMsgShowing = false;
     const ele = $('#modal');
     ele.removeClass('show')
-    // TODO: Make dishes editable
+
+    //TODO: Add a navbar for the administrator mode so that editable content is enabled after clicking an Edit button
+    //Navbar should have an Edit button and once in editing mode, a Cancel and a Save button
+    //Cancel will undo the action and Save will trigger the persistance
+    
+    $('.collection').on('click', e => { //For now I'm just enabling edition if we are logged in and click on the menu list
+      let menuElement = e.target;
+      menuElement.contentEditable = "true";
+    })
   });
 
   store.on('CREDENTIALS_REJECTED', (store) => {
