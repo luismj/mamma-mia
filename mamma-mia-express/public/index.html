@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mamma Mia!</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    </head>
+    <body>
+        <section class="modal" id="modal">
+            <div class="modal-container">
+                <i class="fa fa-times close" id="close"></i>
+                <h1 class="title">Ingreso</h1>
+                <input type="text" placeholder="Usuario" class="user menu-item is-fullwidth">
+                <input type="password" placeholder="Contraseña" class="password menu-item is-fullwidth">
+                <div class="message-board"></div>
+                <button class="login button is-fullwidth">Ingresar</button>
+            </div>
+        </section>
+        <nav class="navbar">
+            <div class="navbar-left"></div>
+            <div class="navbar-right cart">
+                <div class="navbar-item">
+                    <i class="fa fa-sign-in" id="cart-icon"></i>
+                    <span class="cart-items"></span>
+                </div>
+            </div>
+        </nav>
+        <section class="hero splash">
+            <div class="hero-content">
+                <div class="container">
+                    <p class="hero-text-bold">Mamma mia!</p>
+                    <p class="hero-text-light">Restaurant</p>
+                </div>
+            </div>
+        </section>
+        <div>
+            <button class="edit button">Edit</button>
+            <button class="addCategory button">Add Category</button>
+            <button class="add-dish button" id="undefined">Add Dish</button>
+            <button class="saveButton button">Save</button>
+        </div>
+        <div class="container" id="menu">
+            <section class="columns">
+                <div class="column is-6">
+                    <div class="collection">
+                        <h1 class="title">Appetizers</h1>
+                        <article class="media menu_item" data-key="1">
+                            <div class="media-content">
+                                <h3 class="name">Fried Asparagus</h3>
+                                <span class="price is-pulled-right">$4.50</span>
+                                <p class="desc">Fresh asparagus lightly battered and quick-fried. Topped with crumbled queso fresco, chopped cilantro &amp; a drizzle of chimichurri sauce. Served with roasted garlic aioli.</p>
+                            </div>
+                        </article>
+                        <article class="media menu_item" data-key="2">
+                            <div class="media-content">
+                                <h3 class="name">Loaded Boneless Wings</h3>
+                                <span class="price is-pulled-right">$6.75</span>
+                                <p class="desc">Boneless wings smothered in white queso, 3-cheese blend, applewood smoked bacon &amp; chopped green onions. Served with a side of house-made ranch.</p>
+                            </div>
+                        </article>
+                        <button class="addDish button is-fullwidth">Add Dish</button>
+                    </div>
+                    <div class="collection">
+                        <h1 class="title">Burgers</h1>
+                        <article class="media menu_item" data-key="9">
+                            <div class="media-content">
+                                <h3 class="name">Sweet &amp; Smoky Burger</h3>
+                                <span class="price is-pulled-right">$8.75</span>
+                                <p class="desc">Topped with melted pepper Jack cheese, applewood smoked bacon,spiced panko onion rings, fresh leaf lettuce, tomato,mango-infused BBQ sauce &amp; Chili's Signature sauce. Served with a side of mango-infused BBQ sauce.</p>
+                            </div>
+                        </article>
+                        <article class="media menu_item" data-key="10">
+                            <div class="media-content">
+                                <h3 class="name">Guacamole Burger</h3>
+                                <span class="price is-pulled-right">$10.00</span>
+                                <p class="desc">Topped with fresh guacamole, melted Monterey Jack cheese, fire-roasted jalapeños, sauteed red &amp; green bell peppers, caramelized onions &amp; cumin-lime sour cream.</p>
+                            </div>
+                        </article>
+                        <button class="addDish button is-fullwidth">Add Dish</button>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="collection">
+                        <h1 class="title">Appetizers</h1>
+                        <article class="media menu_item" data-key="1">
+                            <div class="media-content">
+                                <h3 class="name">Fried Asparagus</h3>
+                                <span class="price is-pulled-right">$4.50</span>
+                                <p class="desc">Fresh asparagus lightly battered and quick-fried. Topped with crumbled queso fresco, chopped cilantro &amp; a drizzle of chimichurri sauce. Served with roasted garlic aioli.</p>
+                            </div>
+                        </article>
+                        <article class="media menu_item" data-key="2">
+                            <div class="media-content">
+                                <h3 class="name">Loaded Boneless Wings</h3>
+                                <span class="price is-pulled-right">$6.75</span>
+                                <p class="desc">Boneless wings smothered in white queso, 3-cheese blend, applewood smoked bacon &amp; chopped green onions. Served with a side of house-made ranch.</p>
+                            </div>
+                        </article>
+                        <button class="addDish button is-fullwidth">Add Dish</button>
+                    </div>
+                    <div class="collection">
+                        <h1 class="title">Burgers</h1>
+                        <article class="media menu_item" data-key="9">
+                            <div class="media-content">
+                                <h3 class="name">Sweet &amp; Smoky Burger</h3>
+                                <span class="price is-pulled-right">$8.75</span>
+                                <p class="desc">Topped with melted pepper Jack cheese, applewood smoked bacon,spiced panko onion rings, fresh leaf lettuce, tomato,mango-infused BBQ sauce &amp; Chili's Signature sauce. Served with a side of mango-infused BBQ sauce.</p>
+                            </div>
+                        </article>
+                        <article class="media menu_item" data-key="10">
+                            <div class="media-content">
+                                <h3 class="name">Guacamole Burger</h3>
+                                <span class="price is-pulled-right">$10.00</span>
+                                <p class="desc">Topped with fresh guacamole, melted Monterey Jack cheese, fire-roasted jalapeños, sauteed red &amp; green bell peppers, caramelized onions &amp; cumin-lime sour cream.</p>
+                            </div>
+                        </article>
+                        <button class="addDish button is-fullwidth">Add Dish</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="content is-centered">
+                    <p>Aieta, Barbetta, Fusaro, Impaglione, Hagman</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+
