@@ -25,8 +25,10 @@ export default function (store) {
   $('.add-dish').on('click', e => {
     console.log("HOLA TOQUE EL BOTON")
     console.log("E", e);
-    var btn = document.createElement("BUTTON");
-    document.body.appendChild(btn);
+    /* var btn = document.createElement("BUTTON");
+    document.body.appendChild(btn); */
+    var btn = e.getElementById("addDish").innerHTML = "Hello JavaScript!";
+    e.body.appendChild(btn)
   });
 
   $('.login').on('click', e => {

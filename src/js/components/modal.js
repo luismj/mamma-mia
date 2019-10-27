@@ -17,6 +17,9 @@ export default function modal(store) {
 
   const modalEle = addId(addClass(section(modalContainer), 'modal'), 'modal');
 
+  console.log("HOLAAA");
+  console.log("Modal Ele en modaljs", modalEle);
+
   store.on('TOGGLE_SHOW_CART', ({ cartVisible }) => {
     const ele = $('#modal');
     if (cartVisible) {

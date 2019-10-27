@@ -4,7 +4,9 @@ export function text(words) {
 
 export function createElement(type, ...children) {
   const newElement = document.createElement(type);
+  //console.log("NEW ELEMENT", newElement)
   children.forEach(child => newElement.appendChild(child));
+  //console.log("new element dps", newElement)
   return newElement;
 }
 

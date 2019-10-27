@@ -5,6 +5,7 @@ export default function modalItem(itemData) {
   const name = addClass(span(text(itemData.name)), 'name');
   const price = addClass(span(text(formatPrice(itemData.price))), 'price', 'is-pulled-right');
   const removeButton = addClass(i(), 'fa', 'fa-times', 'remove');
+  //const addDishButton = addClass(button(text('Add Dish')), 'addDish', 'button', 'is-fullwidth');
 
   const item = addClass(li(name, price, removeButton), 'menu-item');
   item.dataset.key = itemData.id;
