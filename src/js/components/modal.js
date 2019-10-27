@@ -45,13 +45,59 @@ export default function modal(store) {
     //TODO: Add a navbar for the administrator mode so that editable content is enabled after clicking an Edit button
     //Navbar should have an Edit button and once in editing mode, a Cancel and a Save button
     //Cancel will undo the action and Save will trigger the persistance
-    const removeItems = $('.remove')
-    removeItems.removeClass('hide')
+    const removeItems = $('.remove');
+    const editItems = $('.edit');
+    const cancelEdit = $('.cancel-edit');
+    const applyEdit = $('.apply-edit');
 
-    $('.collection').on('click', e => { //For now I'm just enabling edition if we are logged in and click on the menu list
-      let menuElement = e.target;
-      menuElement.contentEditable = "true";
+    removeItems.removeClass('hidden');
+    editItems.removeClass('hidden');
+
+    editItems.on('click', e => { 
+      const menuElement = e.target.parentElement
+      const idElement = '#' + menuElement.id + ' .';
+
+      $(idElement + 'remove').addClass('hidden');  
+      $(idElement + 'edit').addClass('hidden');  
+      $(idElement + 'cancel-edit').removeClass('hidden');
+      $(idElement + 'apply-edit').removeClass('hidden');
+      
+      menuElement.childNodes.forEach((node) => toggleEditable(node));
+    });
+
+    applyEdit.on('click', e => { 
+      exitEdit();
+      const menuElement = e.target.parentElement;
+      menuElement.childNodes.forEach((node) => toggleEditable(node));
+    });
+
+    cancelEdit.on('click', e => {
+      exitEdit();
+
+      //TODO: We need some logic here that either reverts the changes in edition
+
+      const menuElement = e.target.parentElement;
+      menuElement.childNodes.forEach((node) => toggleEditable(node));
     })
+
+    function exitEdit(){
+      removeItems.removeClass('hidden');  
+      editItems.removeClass('hidden');  
+      cancelEdit.addClass('hidden');
+      applyEdit.addClass('hidden');
+    }
+
+    function toggleEditable(node){
+      if(node.tagName != 'I'){
+        if(node.classList.contains('editable')){
+          node.classList.remove('editable');
+          node.contentEditable = "false";
+        } else {
+          node.classList.add('editable');
+          node.contentEditable = "true";
+        }
+      }
+    }
   });
 
   store.on('CREDENTIALS_REJECTED', (store) => {

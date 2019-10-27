@@ -31,6 +31,10 @@ h1,h2,h3,h4,h5 { font-family: $title-font;}
     opacity: .3;
 }
 
-.hide {
+.hidden {
     display: none;
+}
+
+.editable {
+    background-color: #fff2ac;
 }
