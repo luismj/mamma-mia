@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mamma Mia!</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script type="text/javascript" src="js/login.js"></script>
     </head>
     <body>
         <section class="modal" id="modal">
@@ -17,10 +18,11 @@
             </div>
         </section>
         <nav class="navbar">
+           
             <div class="navbar-left"></div>
             <div class="navbar-right cart">
                 <div class="navbar-item">
-                    <i class="fa fa-sign-in" id="cart-icon"></i>
+                    <i class="fa fa-sign-in" id="cart-icon" onclick="login()"></i>
                     <span class="cart-items"></span>
                 </div>
             </div>
