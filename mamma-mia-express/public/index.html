@@ -4,6 +4,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mamma Mia!</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/js/builders.js" ></script>
+        <script src="/js/helpers.js" ></script>
+        <script src="/js/menuItem.js" ></script>
+        <script>
+            $(document).ready(function (){
+                $.ajax({
+                    url: '/get_dishes',
+                    complete: function(data) {
+                        console.log(data.responseJSON.message);
+                        $.each(data.responseJSON.message, function() {
+                            $("#coll1").append(createMenuItem(this));
+                        });
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <section class="modal" id="modal">
@@ -19,7 +36,7 @@
         <nav class="navbar">
             <div class="navbar-left"></div>
             <div class="navbar-right cart">
-                <div class="navbar-item">
+                <div class="navbar-item" onclick="test()">
                     <i class="fa fa-sign-in" id="cart-icon"></i>
                     <span class="cart-items"></span>
                 </div>
@@ -42,7 +59,7 @@
         <div class="container" id="menu">
             <section class="columns">
                 <div class="column is-6">
-                    <div class="collection">
+                    <div class="collection" id="coll1">
                         <h1 class="title">Appetizers</h1>
                         <article class="media menu_item" data-key="1">
                             <div class="media-content">
