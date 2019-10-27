@@ -1,4 +1,6 @@
 import { $ } from './helpers';
+import { div, h1, addId, addClass, text, button } from './builders';
+import menuItem from './components/menuItem';
 
 export default function (store) {
   $('#cart-icon, #close').on('click', () => {
@@ -22,13 +24,10 @@ export default function (store) {
     store.trigger('ITEM_ADDED', { item: key });
   });
 
-  $('.add-dish').on('click', e => {
-    console.log("HOLA TOQUE EL BOTON")
-    console.log("E", e);
-    /* var btn = document.createElement("BUTTON");
-    document.body.appendChild(btn); */
-    var btn = e.getElementById("addDish").innerHTML = "Hello JavaScript!";
-    e.body.appendChild(btn)
+  $('.addDish').on('click', e => {
+    var itemData = {name:"Dish name example", description:"Dish description example", price:5 }
+    var item = menuItem(itemData);
+    e.target.parentNode.insertBefore(item, e.target);
   });
 
   $('.login').on('click', e => {
