@@ -22,6 +22,13 @@ export default function (store) {
     store.trigger('ITEM_ADDED', { item: key });
   });
 
+  $('.add-dish').on('click', e => {
+    console.log("HOLA TOQUE EL BOTON")
+    console.log("E", e);
+    var btn = document.createElement("BUTTON");
+    document.body.appendChild(btn);
+  });
+
   $('.login').on('click', e => {
     let parent = e.srcElement.parentElement;
     let user = parent.children[2].value;

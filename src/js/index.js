@@ -24,6 +24,8 @@ function reducer(state, event, data) {
       return Object.assign({}, state, {
         cartVisible: !state.cartVisible,
       });
+    case 'TOGGLE_SHOW_NEW_DISH':
+      return Object.assign({}, state, )
     default:
       return state;
   }

@@ -13,7 +13,10 @@ export default function app(store) {
   const bottomEle = bottom();
   const edit = addClass(button(text('Edit')), 'edit', 'button');
   const addCategoryButton = addClass(button(text('Add Category')), 'addCategory', 'button');
-  const addDishButton = addClass(button(text('Add Dish')), 'addDish', 'button');
+
+  //const loginButton = addClass(button(text('Ingresar')), 'login', 'button', 'is-fullwidth');
+
+  const addDishButton = addClass(button(text('Add Dish')), 'add-dish', 'button');
   const saveButton = addClass(button(text('Save')), 'saveButton', 'button');
   const appEle = addId(div(modalEle, navbarEle, heroEle, div(edit, addCategoryButton, addDishButton, saveButton), menuEle, bottomEle), 'app-container');
 
