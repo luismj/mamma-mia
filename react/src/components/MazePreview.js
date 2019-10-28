@@ -27,7 +27,8 @@ class MazeViewer extends Component {
     }
 
     render(){
-        return (<table><tbody>{ this.drawMaze() }</tbody></table>)
+         
+        return (<table><tbody>{  }</tbody></table>)
     }
 
 }

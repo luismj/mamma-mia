@@ -53,9 +53,7 @@ class MazeViewer extends Component {
 
         return (     
             <div>
-                <Button variant="contained" size="small" className={classes.button} onClick={this.toggleModal}>
-                <ViewModuleIcon className={classNames(classes.leftIcon, classes.iconSmall)} />Mostrar Laberintos</Button>
-                <MazesModal show={this.state.isOpen} onClose={this.toggleModal}>{mazes}</MazesModal>
+  
             </div>       
         )
     }
