@@ -8,6 +8,8 @@
         <script src="/js/builders.js" ></script>
         <script src="/js/helpers.js" ></script>
         <script src="/js/menuItem.js" ></script>
+        <script src="/js/components/removeDishListener.js" ></script>
+        <script src="/js/components/editDishListener.js" ></script>
         <script src="/js/components/addDish.js"></script>
         <script src="/js/components/addDishListener.js" ></script>
         <script>
@@ -19,6 +21,12 @@
                         $.each(data.responseJSON.message, function() {
                             $("#coll1").append(createMenuItem(this));
                         });
+
+                        $('.remove-dish').click(removeDish);
+                        $('.add-dish').click(addDish);
+                        $('.edit-dish').click(editDish);
+                        $('.cancel-edit-dish').click(cancelEdition);
+                        $('.apply-edit-dish').click(applyEdition);  
                     }
                 });
             });
@@ -77,7 +85,7 @@
                                 <p class="desc">Boneless wings smothered in white queso, 3-cheese blend, applewood smoked bacon &amp; chopped green onions. Served with a side of house-made ranch.</p>
                             </div>
                         </article>
-                        <button class="addDish button is-fullwidth">Add Dish</button>
+                        <button class="add-dish button is-fullwidth">Add Dish</button>
                     </div>
                     <div class="collection">
                         <h1 class="title">Burgers</h1>
@@ -95,7 +103,7 @@
                                 <p class="desc">Topped with fresh guacamole, melted Monterey Jack cheese, fire-roasted jalapeños, sauteed red &amp; green bell peppers, caramelized onions &amp; cumin-lime sour cream.</p>
                             </div>
                         </article>
-                        <button class="addDish button is-fullwidth">Add Dish</button>
+                        <button class="add-dish button is-fullwidth">Add Dish</button>
                     </div>
                 </div>
                 <div class="column is-6">
@@ -115,7 +123,7 @@
                                 <p class="desc">Boneless wings smothered in white queso, 3-cheese blend, applewood smoked bacon &amp; chopped green onions. Served with a side of house-made ranch.</p>
                             </div>
                         </article>
-                        <button class="addDish button is-fullwidth">Add Dish</button>
+                        <button class="add-dish button is-fullwidth">Add Dish</button>
                     </div>
                     <div class="collection">
                         <h1 class="title">Burgers</h1>
@@ -133,7 +141,7 @@
                                 <p class="desc">Topped with fresh guacamole, melted Monterey Jack cheese, fire-roasted jalapeños, sauteed red &amp; green bell peppers, caramelized onions &amp; cumin-lime sour cream.</p>
                             </div>
                         </article>
-                        <button class="addDish button is-fullwidth">Add Dish</button>
+                        <button class="add-dish button is-fullwidth">Add Dish</button>
                     </div>
                 </div>
             </section>
