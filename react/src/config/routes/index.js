@@ -1,5 +1,5 @@
 import {
-  Home, SignIn, SignUp, Login, Register, ShowMaze
+  Home, SignIn, SignUp, Login, Register, ShowMenu
 } from "../../pages/index";
 
 
@@ -38,12 +38,12 @@ export const routes = [
     component: Login,
     exact: true,
     onlyUnauthenticated: true,
-    redirectTo: '/showMaze'
+    redirectTo: '/showMenu'
   },
 
   {
-    path: "/showMaze",
-    component: ShowMaze,
+    path: "/showMenu",
+    component: ShowMenu,
     exact: true,
     onlyUnauthenticated: true,
     redirectTo: '/'

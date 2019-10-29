@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import MazeCreator from '../components/MazeCreator'
+import MenuCreator from '../components/MenuCreator'
 import MazeViewer from '../components/MazeViewer';
 
-class ShowMaze extends Component {
+class ShowMenu extends Component {
 	render()  {
 		return (
 			<div>
-				<MazeCreator/>
+				<MenuCreator/>
 				<MazeViewer/>
 			</div>
 		);
 	}
 }
 
-export default ShowMaze;
+export default ShowMenu;

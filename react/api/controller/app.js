@@ -1,7 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let path = require('path');
-let mazeResponse = require('../v1.0/mazeRouter');
+let mazeResponse = require('../v1.0/router');
 
 const port = 9000;
 

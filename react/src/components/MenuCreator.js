@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import Maze from './Maze';
-import Configuration from './Configuration';
-import superagent from 'superagent';
 import getCourseItems from "./courseItem"
 import OrderView from "./order-view";
 import getItemIndex from "./itemIndex";
 import Grid from "@material-ui/core/Grid";
 import OrderSummary from "./order-summary"
 
-class MazeCreator extends Component {
+class MenuCreator extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -30,7 +27,7 @@ class MazeCreator extends Component {
 
   fetchData = () => {
     let { selectedItems } = this.state
-    const jsonData = require("./foods.json")
+    const jsonData = require("../resources/foods.json")
     const courseItems = getCourseItems(jsonData, this.props.course)
     this.categoryFoodsItems = courseItems.map(item => item.category);
     console.log(this.categoryFoodsItems);
@@ -127,4 +124,4 @@ class MazeCreator extends Component {
   }
 }
 
-export default MazeCreator;
+export default MenuCreator;

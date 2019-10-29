@@ -74,7 +74,7 @@ class Login extends Component {
 
   renderRedirect = () => {
     if (this.state.loggedIn) {
-      return <Redirect to='/showMaze' />
+      return <Redirect to='/showMenu' />
     }
   }
 

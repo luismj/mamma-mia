@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import "./SignIn.css";
-import SocialButton from './SocialButton'
 import { Redirect } from 'react-router-dom';
 
 export default class Demo extends Component {
@@ -53,48 +52,11 @@ export default class Demo extends Component {
     if (this.state.logged) {
       children = 	
 			<div>
-			<Redirect to="/showMaze" />		
+			<Redirect to="/showMenu" />		
 			</div>
     } else {
 			children = <div>
 			<div><h1>Iniciar Sesion</h1></div>
-			{/* 	<div>
-        <SocialButton
-          provider='facebook'
-          appId='2278364415755752'
-          onLoginSuccess={this.onLoginSuccess}
-          onLoginFailure={this.onLoginFailure}
-          onLogoutSuccess={this.onLogoutSuccess}
-          getInstance={this.setNodeRef.bind(this, 'facebook')}
-          key={'facebook'}
-        >
-          Iniciar sesion con Facebook
-        </SocialButton></div> */}
-     {/*    <div><SocialButton
-          provider='google'
-          appId='177073706787-738bk8cptmf57vn9nencoprig0e0r9d0.apps.googleusercontent.com'
-          onLoginSuccess={this.onLoginSuccess}
-          onLoginFailure={this.onLoginFailure}
-          onLogoutSuccess={this.onLogoutSuccess}
-          onLogoutFailure={this.onLogoutFailure}
-          getInstance={this.setNodeRef.bind(this, 'google')}
-          key={'google'}
-        >
-          Iniciar sesion con Google
-        </SocialButton></div> */}
-     {/*    <div><SocialButton
-          autoCleanUri
-          provider='instagram'
-          appId='f74ba16560494c2696b1250a60951092'
-          onLoginSuccess={this.onLoginSuccess}
-          onLoginFailure={this.onLoginFailure}
-          onLogoutSuccess={this.onLogoutSuccess}
-          getInstance={this.setNodeRef.bind(this, 'instagram')}
-					key={'instagram'}
-					redirect='/showMaze'
-        >
-          Iniciar sesion con Instagram
-        </SocialButton></div> */}
       		<div>
 					<div>
 						<Link to={'/'}>
