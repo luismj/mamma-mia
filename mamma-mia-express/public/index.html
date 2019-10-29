@@ -8,6 +8,8 @@
         <script src="/js/builders.js" ></script>
         <script src="/js/helpers.js" ></script>
         <script src="/js/menuItem.js" ></script>
+        <script src="/js/components/removeDishListener.js" ></script>
+        <script src="/js/components/editDishListener.js" ></script>
         <script src="/js/components/addDish.js"></script>
         <script src="/js/components/addDishListener.js" ></script>
         <script>
@@ -32,6 +34,12 @@
                             }
                             count++;
                         });
+
+                        $('.remove-dish').click(removeDish);
+                        $('.add-dish').click(addDish);
+                        $('.edit-dish').click(editDish);
+                        $('.cancel-edit-dish').click(cancelEdition);
+                        $('.apply-edit-dish').click(applyEdition);  
                     }
                 });
             });
