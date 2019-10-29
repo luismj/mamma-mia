@@ -8,6 +8,7 @@
         <script src="/js/builders.js" ></script>
         <script src="/js/helpers.js" ></script>
         <script src="/js/menuItem.js" ></script>
+        <script src="/js/category.js" ></script>
         <script src="/js/components/removeDishListener.js" ></script>
         <script src="/js/components/editDishListener.js" ></script>
         <script src="/js/components/addDish.js"></script>
@@ -22,15 +23,16 @@
                         console.log(groupByCategories);
                         var count = 0;
                         $.each(groupByCategories, function() {
-                            coll = addClass(div(addClass(h1(text(this[0].type)),"title")), "collection");
+                            coll = []
                             $.each(this, function(){
-                                coll.append(createMenuItem(this));
+                                coll.push(createMenuItem(this));
                             });
+                            category = createCategory(this[0].type, coll)
                             if (count % 2 == 0){
-                                $("#leftColumn").append(coll);
+                                $("#leftColumn").append(category);
                             }
                             else{
-                                $("#rightColumn").append(coll);
+                                $("#rightColumn").append(category);
                             }
                             count++;
                         });
