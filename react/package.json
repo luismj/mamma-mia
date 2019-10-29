@@ -24,7 +24,7 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "start": "HTTPS=true react-scripts start & node ./api/controller/app.js",
+    "start": "react-scripts start & node ./api/controller/app.js",
     "build": "react-scripts build",
     "test": "mocha",
     "eject": "react-scripts eject"
