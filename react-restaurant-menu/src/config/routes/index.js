@@ -1,5 +1,5 @@
 import {
-    SignUp, Login, Register, Home, App
+    SignUp, Login, Register, Home, App, HomeUser
   } from "../../components/app/pages/index.js";
   
   
