@@ -18,13 +18,6 @@ export default class OrderItem extends Component {
         }`}
       >
         <CardActionArea onClick={this.handleClick}>
-          <CardMedia
-            component="img"
-            alt={this.props.itemTitle}
-            height="140"
-            image={this.props.itemImage}
-            title={this.props.itemTitle}
-          />
           <CardContent>
             <Typography
               gutterBottom
