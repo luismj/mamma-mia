@@ -3,9 +3,9 @@ import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
-import FoodType from '../types/food-type'
-import Leaf from '@material-ui/icons/Leaf';
-
+import CardMedia from "@material-ui/core/CardMedia"
+import GlutenFree from "../../../images/gluten_free.png"
+import Veggie from "../../../images/veggie.png"
 export default class OrderItem extends Component {
   handleClick = () => {
     this.props.itemHandler(this.props.id, this.props.itemTitle)
@@ -38,7 +38,6 @@ export default class OrderItem extends Component {
               component="p"
               className="item-info"
             > 
-              <Image source= {this.props.itemType.map(type => `${type}`)} /> //TODO: Use react-image lib and use the map to get the image's path
             </Typography>
             <Typography
               variant="body2"
@@ -47,9 +46,27 @@ export default class OrderItem extends Component {
             >
               Price: ${this.props.itemPrice}
             </Typography>
+            {
+              this.props.itemType.map((type,index) => {
+                return (
+                <CardMedia
+                  className="type-image"
+                  component="img"	
+                  alt={`${type}`}	
+                  image={`${getImagePathFromType(type)}`}		
+                  key={index}
+                />)
+              })
+            }
           </CardContent>
         </CardActionArea>
       </Card>
     )
   }
+}
+
+function getImagePathFromType(type){
+  console.log(type)
+  if (type === "veggie") return Veggie
+  if (type === "gluten_free") return GlutenFree
 }
