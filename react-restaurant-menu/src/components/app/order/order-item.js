@@ -2,8 +2,9 @@ import React, { Component } from "react"
 import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
+import FoodType from '../types/food-type'
+import Leaf from '@material-ui/icons/Leaf';
 
 export default class OrderItem extends Component {
   handleClick = () => {
@@ -13,18 +14,9 @@ export default class OrderItem extends Component {
   render() {
     return (
       <Card
-        className={`${this.props.className} ${
-          this.props.selected ? "-selected" : ""
-        }`}
+        className={`${this.props.className} ${this.props.selected ? "-selected" : ""}`}
       >
         <CardActionArea onClick={this.handleClick}>
-          <CardMedia
-            component="img"
-            alt={this.props.itemTitle}
-            height="140"
-            image={this.props.itemImage}
-            title={this.props.itemTitle}
-          />
           <CardContent>
             <Typography
               gutterBottom
@@ -37,19 +29,23 @@ export default class OrderItem extends Component {
             <Typography
               variant="body2"
               component="p"
-              className="item-info"
+              className="item-desc"
             >
-              Spice Level: {this.props.itemSpiceLevel}, 
-              Allergies: {this.props.itemAllergy.map(allergy => 
-                  `${allergy} `
-                )}
+              {this.props.itemDescription}
             </Typography>
             <Typography
               variant="body2"
               component="p"
-              className="item-desc"
+              className="item-info"
+            > 
+              <Image source= {this.props.itemType.map(type => `${type}`)} /> //TODO: Use react-image lib and use the map to get the image's path
+            </Typography>
+            <Typography
+              variant="body2"
+              component="p"
+              className="item-info"
             >
-              {this.props.itemDescription}
+              Price: ${this.props.itemPrice}
             </Typography>
           </CardContent>
         </CardActionArea>
