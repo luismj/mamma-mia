@@ -1,5 +1,5 @@
 import {
-    SignUp, Login, Register, Home, App, HomeUser, PaymentsHome
+    SignUp, Login, Register, Home, App, HomeUser, Categories, PaymentsHome
   } from "../../components/app/pages/index.js";
   
   
@@ -54,6 +54,13 @@ import {
       component: Home,
       exact: true,
       onlyUnauthenticated: true,
+      redirectTo: '/'
+    },
+
+    {
+      path: "/categories-maker",
+      component: Categories,
+      exact: true,
       redirectTo: '/'
     },
   ];

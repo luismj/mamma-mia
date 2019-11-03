@@ -1,16 +1,13 @@
 import React, { Component } from "react"
-import getCourseItems from "../../../utils/courseItem"
-import getItemIndex from "../../../utils/itemIndex"
 import CategoryView from "./category-view"
-import CategorySummary from "./category-summary"
 import Grid from "@material-ui/core/Grid"
+import { getCoursesFromFile } from "../../../utils/courseName"
 
 export default class CategoryContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      courseItems: [],
-      selectedItems: {}
+      categoriesItems: [],
     }
   }
 
@@ -25,96 +22,33 @@ export default class CategoryContainer extends Component {
   }
 
   fetchData = () => {
-    let { selectedItems } = this.state
-    const jsonData = require("../../../assets/data/categories.json")
-    const courseItems = getCategoryItems(jsonData, this.props.course)
-
-    if (Object.entries(selectedItems).length === 0) {
-      jsonData.map(res => {
-        /* Add empty arrays for each course to add items later */
-        return (selectedItems[res.courseType[0]] = [])
-      })
-    }
     this.setState({
-      courseItems,
-      selectedItems
+      categoriesItems : getCoursesFromFile()
     })
   }
 
   handleItems = (id, itemTitle) => {
-    let { selectedItems } = this.state
-    const { course } = this.props
-    const item = { id: id, title: itemTitle }
 
-    if (selectedItems[course].length !== 0) {
-      let index = selectedItems[course].findIndex(item => item.id === id)
-      let index2 = getItemIndex(selectedItems[course], id)
-      console.log(index+" "+index2)
-      /* If index is not negative delete the item */
-      if (index >= 0) {
-        selectedItems[course].splice(index, 1)
-        this.setState({
-          selectedItems
-        })
-        return
-      }
-    }
-
-    selectedItems[course].push(item)
-
-    this.setState({
-      selectedItems
-    })
-  }
-
-  handleNextCourse = () => {
-    const { selectedItems } = this.state
-    const { course } = this.props
-    if (Object.keys(selectedItems).length - 1 !== course) {
-      /* Check if at least one item is selected in main couse */
-      if (course === 4) {
-        if (selectedItems[course].length === 0) {
-          alert("Select at least one item from this course.")
-          return
-        }
-      }
-      this.props.changeCourse(course + 1)
-    } else {
-      this.props.summaryHandler()
-    }
-  }
-
-  handleChangeOrder = () => {
-    this.props.changeCourse()
-    this.props.summaryHandler()
   }
 
   render() {
-    if (this.props.summary) {
+    if (this.state.categoriesItems.length > 0) {
       return (
-        <div className="summary-container">
-          <OrderSummary selectedItems={this.state.selectedItems} />
-          <button className="button default" onClick={this.handleChangeOrder}>
-            Change order
-          </button>
+        <div className="order-container">
+          <p>Displaying all available categories</p>
+          <Grid container spacing={3}>
+            <CategoryView
+              name={this.state.categoriesItems}
+            />
+          </Grid>
+          <button className="button default" onClick={this.handleNextCourse}>ADD NEW CATEGORY</button>
         </div>
       )
     } else {
       return (
         <div className="order-container">
-          <Grid container spacing={3}>
-            <OrderView
-              {...this.state}
-              course={this.props.course}
-              itemHandler={this.handleItems}
-            />
-          </Grid>
-          <button className="button default" onClick={this.handleNextCourse}>
-            {Object.keys(this.state.selectedItems).length - 1 !==
-            this.props.course
-              ? "Next course"
-              : "Show complete order"}
-          </button>
+          <p>No categories yet! Try adding a new one</p>
+          <button className="button default" onClick={this.handleNextCourse}>ADD NEW CATEGORY</button>
         </div>
       )
     }

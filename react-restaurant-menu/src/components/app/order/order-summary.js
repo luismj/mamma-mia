@@ -18,6 +18,8 @@ export default class OrderSummary extends Component {
             courseItems={courseItems}
           />
         )
+      } else {
+        return(<div><p>Nothing available!</p></div>)
       }
     })
   }
