@@ -1,5 +1,5 @@
 import {
-    SignUp, Login, Register, Home, App, HomeUser
+    SignUp, Login, Register, Home, App, HomeUser, PaymentsHome
   } from "../../components/app/pages/index.js";
   
   
@@ -14,6 +14,13 @@ import {
     {
       path: "/menu-maker",
       component: App,
+      exact: true,
+      redirectTo: '/'
+    },
+
+    {
+      path: "/payments",
+      component: PaymentsHome,
       exact: true,
       redirectTo: '/'
     },
