@@ -39,6 +39,12 @@ body {
     .item-desc {
       color: $primary-color;
     }
+    .type-image{
+      width: 25px;
+      height: 25px;
+      margin: 3px;
+      display: inline-flex
+    }
   }
 }
 

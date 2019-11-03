@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import OrderItem from "./order-item"
+import OrderItem from "./category-item"
 import Grid from "@material-ui/core/Grid"
 import getItemIndex from "../../../utils/itemIndex"
 
-export default class OrderView extends Component {
+export default class CategoryView extends Component {
   handleClick = (id, itemTitle) => {
     this.props.itemHandler(id, itemTitle)
   }
@@ -14,9 +14,9 @@ export default class OrderView extends Component {
         <OrderItem
           id={res.id}
           itemTitle={res.title}
-          itemDescription={res.description}
           itemPrice={res.price}
           itemType={res.type}
+          itemDescription={res.description}
           itemHandler={this.handleClick}
           className="order-item"
           selected={
