@@ -5,9 +5,7 @@ import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 
 export default class CategoryItem extends Component {
-  handleClick = () => {
-    this.props.itemHandler(this.props.id, this.props.itemTitle)
-  }
+  handleClick = () => { }
 
   render() {
     return (

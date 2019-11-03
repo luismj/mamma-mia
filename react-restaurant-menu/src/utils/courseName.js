@@ -6,7 +6,6 @@ function getCoursesFromFile() {
 }
 
 function getCourseName(number) {
-  console.log(courses)
   return courses[number]
 }
 
@@ -14,4 +13,4 @@ function getAllCourseNames() {
   return courses;
 }
 
-export { getAllCourseNames, getCourseName }
+export { getAllCourseNames, getCourseName, getCoursesFromFile }
