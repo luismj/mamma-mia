@@ -1,18 +1,17 @@
-const courses = [ //TODO: get it from a JSON file
-  "Hors d'oeuvres",
-  "Soup",
-  "Fish",
-  "Salad",
-  "Main Course",
-  "Dessert"
-]
+const courses = getCoursesFromFile();
+
+function getCoursesFromFile() {
+  const jsonData = require("../assets/data/categories.json")
+  return jsonData
+}
 
 function getCourseName(number) {
+  console.log(courses)
   return courses[number]
 }
 
 function getAllCourseNames() {
-  return courses
+  return courses;
 }
 
 export { getAllCourseNames, getCourseName }
