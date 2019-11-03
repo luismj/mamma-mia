@@ -6,29 +6,37 @@ import pizza from '../../../images/pizza.jpg';
 import ensalada from '../../../images/ensalada.jpg';
 import hamburguesa from '../../../images/hamburguesa.jpg';
 import milanesas from '../../../images/milanesas.jpg';
-import MenuAppBar from './MenuAppBar'
+import { Link as RouterLink } from "react-router-dom";
+
+const linkToCourses = React.forwardRef((props, ref) => (
+  <RouterLink innerRef={ref} to="/menu-maker" {...props} />
+));
 
 const images = [
   {
     url: pizza,
     title: 'Courses',
     width: '50%',
+    link: linkToCourses,
   },
   {
     url: ensalada,
     title: 'Menu of the day',
     width: '50%',
+    link: linkToCourses,
   },
   {
     url: hamburguesa,
     title: 'Special Offers',
     width: '50%',
+    link: linkToCourses,
   },
 
   {
     url: milanesas,
     title: 'Payments',
     width: '50%',
+    link: linkToCourses,
   },
 ];
 
@@ -105,8 +113,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+
 export default function ButtonBases() {
   const classes = useStyles();
+ 
 
   return (
   
@@ -116,6 +127,7 @@ export default function ButtonBases() {
           focusRipple
           key={image.title}
           className={classes.image}
+          component={image.link}
           focusVisibleClassName={classes.focusVisible}
           style={{
             width: image.width,
@@ -140,6 +152,7 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
+      
       ))}
     </div>
   );

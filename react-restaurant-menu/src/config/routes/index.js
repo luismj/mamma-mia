@@ -6,7 +6,7 @@ import {
   export const routes = [
     {
         path: "/",
-        component: Login,
+        component: HomeUser,
         exact: true,
         redirectTo: '/menu-maker'
     },
