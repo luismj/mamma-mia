@@ -16,6 +16,9 @@ const linkToPayments = React.forwardRef((props, ref) => (
   <RouterLink innerRef={ref} to="/payments" {...props} />
 ));
 
+const linkToFeedback = React.forwardRef((props, ref) => (
+  <RouterLink innerRef={ref} to="/feedback" {...props} />
+));
 
 const images = [
   {
@@ -32,9 +35,9 @@ const images = [
   },
   {
     url: hamburguesa,
-    title: 'Special Offers',
+    title: 'Suggestions',
     width: '50%',
-    link: linkToCourses,
+    link: linkToFeedback,
   },
 
   {

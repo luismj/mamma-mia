@@ -42,6 +42,21 @@ class FileHandler {
 		}
 		return false;
 	}
+
+	static userAlreadyComments(dir, dataToSave) {
+		let existingMessages = this.getFilesData(dir);
+		existingMessages = existingMessages.map(json => json['name']);
+
+		dataToSave = JSON.parse(dataToSave)['name'];
+
+		for (var i = 0; i < existingMessages.length; i++) {
+			if (areEqualArrays(existingMessages[i], dataToSave)) {
+				return true;
+			}
+		}
+		return false;
+
+	}
 }
 
 module.exports.model = {};
