@@ -12,28 +12,33 @@ export default class CategoryItem extends Component {
     super(props)
     this.state = {
       html: this.props.categoryTitle,
+      categoryID: this.props.id,
       editable: false,
-      showComponent: true
+      deleted: false
     };
+    this.updateCategoriesList = this.updateCategoriesList.bind(this);
   };
 
   handleRemoval = () => {
-    console.log("removing item!")
-    this.setState({ showComponent: false });
+    this.setState({ deleted: true }, this.updateCategoriesList);
   }
 
   handleChange = evt => {
     this.setState({ html: evt.target.value });
-    //TODO: persist change
   };
 
   toggleEditable = () => {
-    this.setState({ editable: !this.state.editable });
+    if(this.state.editable) this.setState({ editable: !this.state.editable }, this.updateCategoriesList);
+    else this.setState({ editable: !this.state.editable });
   };
+
+  updateCategoriesList = () => {
+    this.props.updateCategoriesList(this.state)
+  }
 
   render() {
     return (
-      <Card className={this.state.showComponent ? "" : "hidden"} >
+      <Card className={!this.state.deleted ? "" : "hidden"} >
         <CardContent>
             <ContentEditable className={!this.state.editable ? "" : "editable"} html={this.state.html} disabled={!this.state.editable} onChange={this.handleChange} />
             <h2 value={this.state.html} onChange={this.handleChange}/>

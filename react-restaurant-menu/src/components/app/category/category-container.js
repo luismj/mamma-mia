@@ -4,7 +4,6 @@ import Grid from "@material-ui/core/Grid"
 import { getCoursesFromFile } from "../../../utils/courseName"
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import CategoryItem from "./category-item"
 
 export default class CategoryContainer extends Component {
   constructor(props) {
@@ -31,15 +30,12 @@ export default class CategoryContainer extends Component {
   }
 
   handleNewCategory = () => {
-    console.log(this.state.categoriesItems)
     const newCategory = "New Category"
     const newComponents = [...this.state.categoriesItems, newCategory];
 
     this.setState({
       categoriesItems: newComponents
     });
-
-    console.log(this.state.categoriesItems)
   }
 
   render() {
