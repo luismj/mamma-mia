@@ -4,6 +4,7 @@ const crypter = require('bcrypt');
 
 const SALT_ROUNDS = 10
 const USERS_DIR = "./data/users/users_database.json"
+const FEEDBACKS_DIR = "./data/saved_messages/messages_of_feedback.json"
 
 class UserHandler {
 
@@ -13,12 +14,24 @@ class UserHandler {
 		return usersJson;
 	}
 
+	static getComments() {
+		let comments = fs.readFileSync(FEEDBACKS_DIR);
+		let commentsJson = JSON.parse(comments);
+		console.log("COMMENTS JSON", commentsJson)
+		return commentsJson;
+	}
+
 	static hashPassword(pass) {
 		let salt = crypter.genSaltSync(SALT_ROUNDS);
 		return crypter.hashSync(pass, salt);
 	}
 
 	static findUserByEmail(email) {
+		let usersJson = this.getUsers();
+		return usersJson.filter(user => user["email"] == email);
+	}
+
+	static findUserByName(name) {
 		let usersJson = this.getUsers();
 		return usersJson.filter(user => user["email"] == email);
 	}
@@ -47,18 +60,17 @@ class UserHandler {
 		}
 	}
 
-	static validateUser(email, password) {
-		let usersJson = this.getUsers();
-		let hashedPassword = this.findHashedPasswordForEmail(email);
-		if (crypter.compareSync(password, hashedPassword)) {
-		    return { "status": 200, "message": "Usuario logueado." };
-		}
-		if (email == "admin" && password == "proyectos") {
-		    return { "status": 200, "message": "Usuario logueado." };
-		}
-		else {
-		    return { "status": 422, "message": "Usuario o contraseña incorrectos." };
-		}
+	static saveMessage(name, message) {
+	/* 	if(message === ''){
+			return { "status": 422, "message": "El usuario ya está registrado." };
+		} */
+		let messagesJson = this.getComments();
+		//let hashedPassword = this.hashPassword(password);
+
+        messagesJson.push({ "name": name, "message": message })
+        fs.writeFileSync(FEEDBACKS_DIR, JSON.stringify(messagesJson));
+
+        return { "status": 200, "message": "Comentario registrado exitosamente." };
 	}
 }
 
