@@ -70,6 +70,15 @@ body {
   margin: 0;
 }
 
+.editable {
+  border-style: solid;
+  border-color: #f8c98e;
+}
+
+.hidden {
+  display: none;
+}
+
 /* Buttons */
 .button {
   font-size: inherit;
