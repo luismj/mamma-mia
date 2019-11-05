@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import CourseItem from "./course-item"
 import Grid from "@material-ui/core/Grid"
-import getItemIndex from "../../../../utils/itemIndex"
 
-export default class OrderView extends Component {
+export default class CourseView extends Component {
   handleClick = (id, itemTitle) => {
     this.props.itemHandler(id, itemTitle)
   }
@@ -19,9 +18,6 @@ export default class OrderView extends Component {
           itemType={res.type}
           itemHandler={this.handleClick}
           className="order-item"
-          selected={
-            getItemIndex(this.props.selectedItems[this.props.course], res.id) >= 0
-          }
         />
       </Grid>
     ))

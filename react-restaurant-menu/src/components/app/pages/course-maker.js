@@ -25,20 +25,14 @@ export default class Courses extends Component {
   render() {
     return (
       <main className="app">
-        <h1 className="title">
-          Mamma mía! - Restaurant Menu
-        </h1>
-        <p>All of our delicious food options sorted by categories</p>
-        <Steps
-          {...this.state}
-          changeCourse={this.handleCourse}
-          summaryHandler={this.handleSummary}
-        />
-        <Order
-          {...this.state}
-          changeCourse={this.handleCourse}
-          summaryHandler={this.handleSummary}
-        />
+        <div>
+          <h1 className="title">Mamma mía! - Restaurant Menu</h1>
+          <p>All of our delicious food options sorted by categories</p>
+        </div>
+        <div>
+          <Steps {...this.state} changeCourse={this.handleCourse} />
+          <Order {...this.state} changeCourse={this.handleCourse} />
+        </div>
       </main>
     )
   }
