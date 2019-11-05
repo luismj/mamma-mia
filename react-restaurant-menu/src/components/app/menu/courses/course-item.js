@@ -12,13 +12,28 @@ import GlutenFree from "../../../../images/gluten_free.png"
 import Veggie from "../../../../images/veggie.png"
 
 export default class CourseItem extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      //html: this.props.categoryTitle,
+      //categoryID: this.props.id,
+      //editable: false,
+      deleted: false
+    };
+    //this.updateCategoriesList = this.updateCategoriesList.bind(this);
+  };
+
   handleClick = () => {
     this.props.itemHandler(this.props.id, this.props.itemTitle)
   }
 
+  handleRemoval = () => {
+    this.setState({ deleted: true }, /*this.updateCategoriesList*/);
+  }
+
   render() {
     return (
-      <Card className={`${this.props.className} ${this.props.selected ? "-selected" : ""}`}>
+      <Card className={`${this.props.className} ${!this.state.deleted ? "" : "hidden"}`}>
         <CardContent>
           <Typography gutterBottom variant="h6" component="h2" className="item-title">
             {this.props.itemTitle}
@@ -41,7 +56,7 @@ export default class CourseItem extends Component {
           <Button variant="contained" size="small" color="default">
             <EditIcon/> Edit {/*!this.state.editable ? "Edit" : "Save"*/}
           </Button>
-          <Button variant="contained" size="small" color="default">
+          <Button variant="contained" size="small" color="default" onClick={this.handleRemoval}>
             <DeleteIcon/> Remove
           </Button>
         </CardActions>
