@@ -15,9 +15,11 @@ export default class CourseItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //html: this.props.categoryTitle,
+      htmlTitle: this.props.itemTitle,
+      htmlDescription: this.props.itemDescription,
+      htmlPrice: this.props.itemPrice,
       //categoryID: this.props.id,
-      //editable: false,
+      editable: false,
       deleted: false
     };
     //this.updateCategoriesList = this.updateCategoriesList.bind(this);
@@ -27,6 +29,26 @@ export default class CourseItem extends Component {
     this.props.itemHandler(this.props.id, this.props.itemTitle)
   }
 
+  handleTitleChange = evt => {
+    console.log(evt.target.value)
+    this.setState({ htmlTitle: evt.target.value });
+  };
+
+  handleDescriptionChange = evt => {
+    console.log(evt.target.value)
+    this.setState({ htmlDescription: evt.target.value });
+  };
+
+  handlePriceChange = evt => {
+    console.log(evt.target.value)
+    this.setState({ htmlPrice: evt.target.value });
+  };
+
+  toggleEditable = () => {
+    if(this.state.editable) this.setState({ editable: !this.state.editable }, this.updateCategoriesList);
+    else this.setState({ editable: !this.state.editable });
+  };
+
   handleRemoval = () => {
     this.setState({ deleted: true }, /*this.updateCategoriesList*/);
   }
@@ -35,15 +57,12 @@ export default class CourseItem extends Component {
     return (
       <Card className={`${this.props.className} ${!this.state.deleted ? "" : "hidden"}`}>
         <CardContent>
-          <Typography gutterBottom variant="h6" component="h2" className="item-title">
-            {this.props.itemTitle}
-          </Typography>
-          <Typography variant="body2" component="p" className="item-desc">
-            {this.props.itemDescription}
-          </Typography>
-          <Typography variant="body2" component="p" className="item-info">
-            Price: ${this.props.itemPrice}
-          </Typography>
+          <ContentEditable className={!this.state.editable ? "" : "editable"} html={this.state.htmlTitle} disabled={!this.state.editable} onChange={this.handleTitleChange} />
+          <h6 value={this.state.htmlTitle} onChange={this.handleTitleChange}/>
+          <ContentEditable className={!this.state.editable ? "" : "editable"} html={this.state.htmlDescription} disabled={!this.state.editable} onChange={this.handleDescriptionChange} />
+          <p value={this.state.htmlDescription} onChange={this.handleDescriptionChange}/>
+          <ContentEditable className={!this.state.editable ? "" : "editable"} html={"Price: $" + this.state.htmlPrice.toString()} disabled={!this.state.editable} onChange={this.handlePriceChange} />
+          <p value={this.state.htmlPrice} onChange={this.handlePriceChange}/>
             {
               this.props.itemType.map((type,index) => {
                 return (
@@ -53,8 +72,8 @@ export default class CourseItem extends Component {
             }
         </CardContent>
         <CardActions>
-          <Button variant="contained" size="small" color="default">
-            <EditIcon/> Edit {/*!this.state.editable ? "Edit" : "Save"*/}
+          <Button variant="contained" size="small" color="default" onClick={this.toggleEditable}>
+            <EditIcon/> {!this.state.editable ? "Edit" : "Save"}
           </Button>
           <Button variant="contained" size="small" color="default" onClick={this.handleRemoval}>
             <DeleteIcon/> Remove
