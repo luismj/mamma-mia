@@ -9,7 +9,7 @@ import milanesas from '../../../images/milanesas.jpg';
 import { Link as RouterLink } from "react-router-dom";
 
 const linkToCourses = React.forwardRef((props, ref) => (
-  <RouterLink innerRef={ref} to="/menu-maker" {...props} />
+  <RouterLink innerRef={ref} to="/course-maker" {...props} />
 ));
 
 const linkToPayments = React.forwardRef((props, ref) => (

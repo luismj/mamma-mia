@@ -18,6 +18,13 @@ import {
     },
 
     {
+      path: "/course-maker",
+      component: Courses,
+      exact: true,
+      redirectTo: '/'
+    },
+
+    {
       path: "/payments",
       component: PaymentsHome,
       exact: true,
