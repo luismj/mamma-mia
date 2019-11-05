@@ -1,3 +1,7 @@
 export default function getItemIndex(selectedItems, id) {
-  return selectedItems.findIndex(item => item.id === id)
+  try { 
+    return selectedItems.findIndex(item => item.id === id) 
+  } catch {
+    return "null"
+  }
 }

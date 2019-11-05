@@ -1,9 +1,7 @@
 import {
-    SignUp, Login, Register, Home, App, HomeUser, Categories, PaymentsHome,
-    FeedbackHome
+    SignUp, Login, Register, Home, App, HomeUser, Categories, PaymentsHome, Courses, FeedbackHome
   } from "../../components/app/pages/index.js";
-  
-  
+    
   export const routes = [
     {
         path: "/",
@@ -71,4 +69,11 @@ import {
       exact: true,
       redirectTo: '/'
     },
+
+    {
+      path: "/courses-maker",
+      component: Courses,
+      exact: true,
+      redirectTo: '/'
+    }
   ];
