@@ -11,6 +11,7 @@ export default class CategoryContainer extends Component {
     this.state = {
       categoriesItems: [],
     }
+    this.imprimirAlgo = this.imprimirAlgo.bind(this)
   }
 
   componentDidMount() {
@@ -38,13 +39,28 @@ export default class CategoryContainer extends Component {
     });
   }
 
+  updateCategoriesList = (newCategories) => {
+    console.log("ESTO ES EN CONTAINER", newCategories);
+    let jsonData = getCoursesFromFile();
+    let categoriesJson = JSON.parse(jsonData);
+    //categoriesJson.push
+    
+    this.setState({
+      //categoriesItems : setCoursesFromFile(newCategories)
+    })
+  }
+
+  imprimirAlgo(){
+    console.log("holus")
+  }
+
   render() {
     if (this.state.categoriesItems.length > 0) {
       return (
         <div className="order-container">
           <p>Displaying all available categories</p>
           <Grid container spacing={3}>
-            <CategoryView name={this.state.categoriesItems}/>
+            <CategoryView name={this.state.categoriesItems} updateCategoriesList={this.imprimirAlgo}/>
           </Grid>
           <Button className="button default" variant="contained" size="small" color="default" onClick={this.handleNewCategory}>
             <AddIcon/> New Category

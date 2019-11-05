@@ -23,7 +23,12 @@ export default class CategoryView extends Component {
 
     console.log("categories after anything: " + newCategories) // Array of categories is updated up to this point
     this.setState({ categoriesList: newCategories });         // However, state is never updated here (TODO: CHECK THIS)
-    console.log(this.state)
+    console.log("VIEW", this.state)
+    console.log("NEW CATEGORIES", newCategories)
+    this.setState(newCategories);
+    this.state = newCategories
+    console.log("STATE DESPUES DE SETEAR ESTADO NUEVO", this.state)
+
   }
 
   render() {
