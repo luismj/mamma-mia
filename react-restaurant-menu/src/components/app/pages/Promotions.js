@@ -1,24 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import mercadoPago from '../../../images/mercadopago.jpg';
-import tarjetaCredito from '../../../images/tarjetaCredito.jpg';
-import tarjetaDebito from '../../../images/credito.jpg';
-import efectivo from '../../../images/efectivo.jpg';
 
-/* const useStyles = makeStyles({
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-}); */
+import Typography from '@material-ui/core/Typography';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -96,55 +82,32 @@ const useStyles = makeStyles(theme => ({
 
 const payments = [
     {
-        title: "Mercado Pago",
-        description: "Rápido, seguro y no tiene costo adicional.",
-        image: mercadoPago,
-        visa: ""  
+        title: "20% de Descuento!",
+        description: "Pagando en Efectivo un 20% de descuento!"
     },
     {
-        title: "Tarjeta de crédito",
-        description: "Se aceptan tarjetas de crédito de todos los bancos",
-        image: tarjetaCredito
-    },
-    {
-        title: "Tarjeta de débito",
-        description: "Se aceptan tarjetas de débito de todos los bancos",
-        image: tarjetaDebito
-    },
-  
-    {
-        title: "Efectivo",
-        description: "Se acepta dinero en efectivo",
-        image: efectivo
-    },
+        title: "Cuotas sin interés!",
+        description: "Con tarjetas de crédito"
+    }
   ];
 
   
-export default function PaymentCard() {
+export default function PromotionCard() {
   const classes = useStyles();
  
 
   return (
     <div className={classes.root}>
      {payments.map(payment => (
-      <Card className={classes.card} style={{width: 400, marginLeft: 30, marginRight: 30, marginTop: 10}}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.image}
-          image={payment.image}
-          title={payment.title}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {payment.title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {payment.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-      </CardActions>
+      <Card className={classes.card}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        {payment.title}
+        </Typography>
+        <Typography variant="h5" component="h2">
+         {payment.description}
+        </Typography>
+      </CardContent>
     </Card>
      ))}
      <li></li>
