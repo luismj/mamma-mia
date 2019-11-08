@@ -9,9 +9,9 @@ class PaymentsHome extends Component {
 		return (
 			<div>
 				 <PageBar></PageBar>
-				 <h2 style={{marginLeft:50}}>Payments</h2>
+				 <h2 style={{marginLeft:50}}>Payment Methods</h2>
                  <PaymentCard></PaymentCard>
-				 <h2 style={{marginLeft:50}}>Promotions</h2>
+				 <h2 style={{marginLeft:50}}>Special Offers</h2>
 				 <PromotionCard></PromotionCard>
 			</div>
 		);

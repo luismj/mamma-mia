@@ -82,12 +82,12 @@ const useStyles = makeStyles(theme => ({
 
 const payments = [
     {
-        title: "20% de Descuento!",
-        description: "Pagando en Efectivo un 20% de descuento!"
+        title: "20% Discount!",
+        description: "Get a 20% discount paying cash!"
     },
     {
-        title: "Cuotas sin interés!",
-        description: "Con tarjetas de crédito"
+        title: "Payments without interest charges!",
+        description: "Paying with credit cards (Visa and Mastercard only)"
     }
   ];
 

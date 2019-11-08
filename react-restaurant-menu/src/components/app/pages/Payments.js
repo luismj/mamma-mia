@@ -97,24 +97,23 @@ const useStyles = makeStyles(theme => ({
 const payments = [
     {
         title: "Mercado Pago",
-        description: "Rápido, seguro y no tiene costo adicional.",
-        image: mercadoPago,
-        visa: ""  
+        description: "Fast, safe and no additional cost. Powered by Mercado Libre",
+        image: mercadoPago
     },
     {
-        title: "Tarjeta de crédito",
-        description: "Se aceptan tarjetas de crédito de todos los bancos",
+        title: "Credit cards",
+        description: "We accept any credit card (Visa, Mastercard, Amex) from any bank",
         image: tarjetaCredito
     },
     {
-        title: "Tarjeta de débito",
-        description: "Se aceptan tarjetas de débito de todos los bancos",
+        title: "Debit cards",
+        description: "We accept any debit card from any bank",
         image: tarjetaDebito
     },
   
     {
-        title: "Efectivo",
-        description: "Se acepta dinero en efectivo",
+        title: "Cash",
+        description: "We accept cash payments",
         image: efectivo
     },
   ];
