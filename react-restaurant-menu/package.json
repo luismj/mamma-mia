@@ -22,6 +22,7 @@
     "eslint-plugin-react": "^7.16.0"
   },
   "scripts": {
+    "dev": "concurrently \"react-scripts start\" \"env-cmd -f ./api/.env nodemon ./api/app.js\"",
     "start": "react-scripts start & node ./api/controller/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
