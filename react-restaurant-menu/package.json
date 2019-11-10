@@ -43,6 +43,9 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.16.0"
+    "concurrently": "^5.0.0",
+    "env-cmd": "^10.0.1",
+    "eslint-plugin-react": "^7.16.0",
+    "nodemon": "^1.19.4"
   }
 }
