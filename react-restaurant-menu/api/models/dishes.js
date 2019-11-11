@@ -40,4 +40,10 @@ const dishSchema = mongoose.Schema({
     }
 });
 
+/*dishSchema.pre('save', async (next) => {
+    const dish = this;
+    if(dish.hasOwnProperty('photo')) {
+    }
+});*/
+
 module.exports = mongoose.model('Dishes', dishSchema);
