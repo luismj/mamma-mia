@@ -27,16 +27,16 @@ const dishSchema = mongoose.Schema({
     },
     categoryName: {
         type: String,
-        required: true
-        /*validate: {
+        required: true,
+        validate: {
             isAsync: true,
-            validator: (v, callback) => {
-                if(Category.findByName(v)) {
-
-                }
-                callback(isValid);
-            } 
-        }*/
+            validator: (value, callback) => {
+                Category.find({name: value}, (err, docs) => {
+                    callback(docs.length > 0);
+                });
+            },
+            message: 'Category does not exists'
+        }
     }
 });
 
