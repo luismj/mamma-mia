@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const category = require('./categories');
 
+
 const dishSchema = mongoose.Schema({
     name: {
         type: String,
