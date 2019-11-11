@@ -7,6 +7,10 @@ const dishSchema = mongoose.Schema({
         required: true,
         minLength: 3
     },
+    description: {
+        type: String,
+        minLength: 10
+    },
     price: {
         type: Number,
         required: true,
